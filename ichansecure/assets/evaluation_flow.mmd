@@ -1,0 +1,27 @@
+flowchart TD
+    V00["Future evaluation only: no tests or experiments run at Gate 3"] --> V01["Gates 4 and 5: prepare package and fixed ICHAN-TV1.1 checks"]
+    V01 --> V02["Researcher executes controlled correctness and file-boundary checks"]
+    V02 --> V03{"Required checks pass?"}
+    V03 -->|No| V04{"Does the logged defect change the specification or flow?"}
+    V04 -->|Yes| V21["Correct and re-review affected Gate 2 or 3 artifacts under change control"]
+    V21 --> V22["Obtain researcher acceptance of changed design before implementation"]
+    V22 --> V01
+    V04 -->|No| V23["Gate 4 implementation correction; repeat Gate 5 checks"]
+    V23 --> V01
+    V03 -->|Yes| V05["Gate 6: acquire approved candidate data; record provenance and tag census"]
+    V05 --> V06["Record eligibility and exclusions; establish patient-level separation"]
+    V06 --> V07["Freeze estimand, payloads, seeds, boundaries, metrics and uncertainty protocol"]
+    V07 --> V08["Assign paired covers and payloads within each valid comparison domain"]
+    V08 --> V09["Separate supported CT stored-value evaluation from unsigned 8-bit BASMED reproduction"]
+    V09 --> V10["Researcher runs approved methods, fixed controls and methodological ablations"]
+    V10 --> V11{"Run yields a valid output?"}
+    V11 -->|No| V12["Record rejection or failure reason; retain denominator and feasibility status"]
+    V11 -->|Yes| V13["Record exact payload equality, checksum status and defined recovery metrics"]
+    V13 --> V14["Record raw slots, usable bytes, tail waste, beta and side-state cost"]
+    V14 --> V15["Measure stored-value distortion, declared quality metrics, runtime and memory"]
+    V15 --> V16["Join successful-run metrics with all eligibility and failure records"]
+    V12 --> V16
+    V16 --> V17["Aggregate paired results with patient-aware uncertainty; retain strata"]
+    V17 --> V18["Plot matched comparisons and failures; label unavailable metrics"]
+    V18 --> V19["Gate 7: audit each claim against frozen evidence and limitations"]
+    V19 --> V20["Researcher verifies results before proposal or manuscript finalization"]

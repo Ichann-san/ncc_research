@@ -1,0 +1,83 @@
+flowchart TD
+    subgraph EMB["BASMEDSecure embedding"]
+        E0([Start])
+        E1[/Input cover image/]
+        E2[/Input secret data/]
+        E3[Train or apply logistic regression to classify pixels]
+        E4[Count predicted classes P0, P1, and P2]
+        E5{Secret length at most P0 bits?}
+        E6[Select profile 1: low 1, medium 0, high 0]
+        E7{Secret length at most 2P0 plus P1 bits?}
+        E8[Select profile 2: low 2, medium 1, high 0]
+        E9A{Secret length at most 3P0 plus 2P1 plus P2 bits?}
+        E9[Select profile 3: low 3, medium 2, high 1]
+        EX[Capacity behavior unspecified in the original flow]
+        E10[Read next pixel and predicted label]
+        E11[Choose depth from selected profile]
+        E12[Replace the selected least significant bits]
+        E13[Append actual depth to key array]
+        E14{All secret bits embedded?}
+        E15[/Output stego image and key array/]
+        E16([End])
+
+        E0 --> E1
+        E0 --> E2
+        E1 --> E3
+        E2 --> E3
+        E3 --> E4
+        E4 --> E5
+        E5 -- Yes --> E6
+        E5 -- No --> E7
+        E7 -- Yes --> E8
+        E7 -- No --> E9A
+        E9A -- Yes --> E9
+        E9A -- No --> EX
+        E6 --> E10
+        E8 --> E10
+        E9 --> E10
+        E10 --> E11
+        E11 --> E12
+        E12 --> E13
+        E13 --> E14
+        E14 -- No --> E10
+        E14 -- Yes --> E15
+        E15 --> E16
+    end
+
+    subgraph EXT["BASMEDSecure extraction"]
+        X0([Start])
+        X1[/Input stego image and external key array/]
+        X2[Read stego image and predict pixel intensity]
+        X3{Secret length at most predicted P0?}
+        XU[No branch is not operationally specified]
+        X4[Read next key value and corresponding stego pixel]
+        X5{Key value}
+        X6[Read 1 least significant bit]
+        X7[Read 2 least significant bits]
+        X8[Read 3 least significant bits]
+        X9[Append extracted bits]
+        X10{End of key array?}
+        X11[/Output reconstructed secret bits and claimed cover image/]
+        X12([End])
+
+        X0 --> X1
+        X1 --> X2
+        X2 --> X3
+        X3 -- Yes --> X4
+        X3 -- No --> XU
+        X4 --> X5
+        X5 -- 1 --> X6
+        X5 -- 2 --> X7
+        X5 -- 3 --> X8
+        X5 -- 0 --> X10
+        X6 --> X9
+        X7 --> X9
+        X8 --> X9
+        X9 --> X10
+        X10 -- No --> X4
+        X10 -- Yes --> X11
+        X11 --> X12
+        XU --> X12
+    end
+
+    E15 -. transmits required side information .-> X1

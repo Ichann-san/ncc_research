@@ -1,0 +1,22 @@
+flowchart TD
+    G1["Gate 1: freeze research scope"]
+    G2["Gate 2: approve B1 mathematical contract"]
+    G3["Gate 3: approve embedding, extraction, and evaluation flows"]
+    G4["Gate 4: prepare canonical implementation package"]
+    G5["Gate 5: correct and execute controlled verification notebook"]
+    D5{"Internal correctness evidence accepted?"}
+    G6["Gate 6: run matched dataset experiments and analysis notebook"]
+    D6{"Evidence sufficient for bounded claims?"}
+    G7["Gate 7: interpret results, limitations, and contribution"]
+    G8["Write proposal or manuscript from accepted evidence"]
+
+    G1 --> G2 --> G3 --> G4 --> G5 --> D5
+    D5 -- No --> G5
+    D5 -- Yes --> G6 --> D6
+    D6 -- No --> G6
+    D6 -- Yes --> G7 --> G8
+
+    classDef complete fill:#d9ead3,stroke:#38761d,color:#000;
+    classDef pending fill:#fff2cc,stroke:#bf9000,color:#000;
+    class G1,G2,G3,G4 complete;
+    class G5,D5,G6,D6,G7,G8 pending;

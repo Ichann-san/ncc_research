@@ -1,0 +1,33 @@
+flowchart TD
+    X00["Input: received CT DICOM; no cover or external depth map"] --> X01{"Supported CT metadata, loss history and decoder?"}
+    X01 -->|No| XD["Reject E_DICOM; return no payload"]
+    X01 -->|Yes| X02["Decode stored values Y; retain domain, shape and PaddingSpec"]
+    X02 --> X03{"Valid integer array and padding metadata?"}
+    X03 -->|No| XV["Reject E_DOMAIN or E_DICOM; return no payload"]
+    X03 -->|Yes| X04["Reconstruct first 136 eligible carriers J using received PaddingSpec"]
+    X04 --> X05{"136 eligible carriers exist?"}
+    X05 -->|No| XH["Reject E_BOOTSTRAP_CAPACITY; return no payload"]
+    X05 -->|Yes| X06["Set beta; read one low rank-code bit per carrier; pack 17-byte header"]
+    X06 --> X07{"Magic equals ICHS?"}
+    X07 -->|No| XM["Reject E_MAGIC; return no payload"]
+    X07 -->|Yes| X08{"Version equals 1?"}
+    X08 -->|No| XR["Reject E_VERSION; return no payload"]
+    X08 -->|Yes| X09["Parse big-endian L and expected CRC; compute all suffix raw capacities"]
+    X09 --> X10{"L at most floor of profile 3 raw capacity divided by 8?"}
+    X10 -->|No| XL["Reject E_LENGTH before payload-sized allocation"]
+    X10 -->|Yes| X11["Select smallest byte-feasible profile; allocate recovery storage"]
+    X11 --> X12["Set i = beta; j = 0; B = 8L"]
+    X12 --> X13{"j equals B?"}
+    X13 -->|No| X14{"i less than N?"}
+    X14 -->|No| XT["Reject E_LENGTH; return no partial payload"]
+    X14 -->|Yes| X15["r = guarded depth of Y at i using PaddingSpec; m = min(r, B - j)"]
+    X15 --> X16{"m greater than zero?"}
+    X16 -->|Yes| X17["Append exactly m low rank-code bits MSB-first; j = j + m"]
+    X16 -->|No| X18["Read no payload bits at this position"]
+    X17 --> X19["i = i + 1"]
+    X18 --> X19
+    X19 --> X13
+    X13 -->|Yes| X20["Pack exactly L payload bytes; compute CRC-32/ISO-HDLC"]
+    X20 --> X21{"Computed CRC equals header CRC?"}
+    X21 -->|No| XC["Reject E_CRC; payload-checksum mismatch"]
+    X21 -->|Yes| X22["Return recovered payload; no authenticity claim"]

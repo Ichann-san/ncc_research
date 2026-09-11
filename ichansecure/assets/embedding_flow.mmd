@@ -1,0 +1,38 @@
+flowchart TD
+    E00["Input: source CT DICOM and byte payload P"] --> E01{"Supported CT metadata, loss history and decoder?"}
+    E01 -->|No| ED["Reject E_DICOM; preserve source and destination"]
+    E01 -->|Yes| E02["Decode stored values; retain domain, shape and PaddingSpec"]
+    E02 --> E03{"Valid integer array, padding metadata and payload length?"}
+    E03 -->|No| EV["Reject E_DOMAIN, E_DICOM or E_LENGTH as applicable"]
+    E03 -->|Yes| E04["Scan row-major using PaddingSpec for first 136 eligible carriers J"]
+    E04 --> E05{"136 eligible carriers exist?"}
+    E05 -->|No| EH["Reject E_BOOTSTRAP_CAPACITY before cover copy"]
+    E05 -->|Yes| E06["Set beta = last carrier index + 1; reserve [0,beta)"]
+    E06 --> E07["Sum guarded raw slots for each profile over [beta,N)"]
+    E07 --> E08{"L bytes fit at least one profile?"}
+    E08 -->|No| EC["Reject E_CAPACITY before cover copy"]
+    E08 -->|Yes| E09["Select smallest feasible profile c; build 17-byte header"]
+    E09 --> E10["Copy X to Y; write one header bit at each position in J"]
+    E10 --> E11["Set i = beta; j = 0; B = 8L"]
+    E11 --> E12{"j equals B?"}
+    E12 -->|No| E13{"i less than N?"}
+    E13 -->|No| EI["Reject E_INTERNAL; return no stego output"]
+    E13 -->|Yes| E14["r = guarded depth of X at i using PaddingSpec; m = min(r, B - j)"]
+    E14 --> E15{"m greater than zero?"}
+    E15 -->|Yes| E16["Write next m payload bits using E_m; j = j + m"]
+    E15 -->|No| E17["Leave Y at i unchanged"]
+    E16 --> E18["i = i + 1"]
+    E17 --> E18
+    E18 --> E12
+    E12 -->|Yes| E19["Core result: Y; no external depth map; X unchanged"]
+    E19 --> E20{"Is the destination distinct and authorized, and can the output contract be satisfied?"}
+    E20 -->|No| EO["Reject; remove temporary candidate if present; preserve source and existing destination; report any cleanup failure"]
+    E20 -->|Yes| E21["Prepare derived CT identity and source references; preserve receiver metadata"]
+    E21 --> E22["Audit pixel-dependent metadata; recompute or remove extrema where permitted; remove or replace invalidated signatures and MACs"]
+    E22 --> E23["Serialize same-directory temporary candidate as Explicit VR Little Endian"]
+    E23 --> E24{"Decoded candidate equals Y and required metadata contract holds?"}
+    E24 -->|No| EO
+    E24 -->|Yes| E25["Attempt supported atomic publication to authorized destination"]
+    E25 --> E26{"Publication succeeded?"}
+    E26 -->|No| EO
+    E26 -->|Yes| E27["Return derived destination; source unchanged"]

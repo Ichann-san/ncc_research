@@ -1,0 +1,734 @@
+{
+  "version": "31.4.2",
+  "pages": [
+    {
+      "id": "ENmA9bDYmeww__T6Rty6",
+      "name": "Page-1",
+      "cells": [
+        {
+          "id": "1",
+          "type": "layer"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-5",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-1",
+          "target": "k8Y8Kcw116URplJfpIN7-3"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-1",
+          "type": "node",
+          "parent": "1",
+          "label": "Start"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-9",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-2",
+          "target": "k8Y8Kcw116URplJfpIN7-8"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-2",
+          "type": "node",
+          "parent": "1",
+          "label": "Input : Cover image"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-10",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-3",
+          "target": "k8Y8Kcw116URplJfpIN7-8"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-3",
+          "type": "node",
+          "parent": "1",
+          "label": "Input : secret\ndata",
+          "html": "&nbsp; Input : secret<div>data</div>"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-4",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-1",
+          "target": "k8Y8Kcw116URplJfpIN7-2"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-8",
+          "type": "node",
+          "parent": "1",
+          "label": "Predict pixel density"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-36",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-11",
+          "target": "k8Y8Kcw116URplJfpIN7-13"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-43",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-11",
+          "target": "k8Y8Kcw116URplJfpIN7-23"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-11",
+          "type": "node",
+          "parent": "1",
+          "label": "len(secret) &lt;= labels[0]"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-12",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-8",
+          "target": "k8Y8Kcw116URplJfpIN7-11"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-13",
+          "type": "node",
+          "parent": "1",
+          "label": "Read pixel entry"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-39",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-15",
+          "target": "k8Y8Kcw116URplJfpIN7-17"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-15",
+          "type": "node",
+          "parent": "1",
+          "label": "Enstry label = 0"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-17",
+          "type": "node",
+          "parent": "1",
+          "label": "Do replacement 1 bit"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-44",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-23",
+          "target": "k8Y8Kcw116URplJfpIN7-25"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-23",
+          "type": "node",
+          "parent": "1",
+          "label": "len(secret) <= 2*(labels[0]+labels[1]",
+          "html": "<font style=\"font-size: 8px;\">len(secret) &lt;= 2*(labels[0]+labels[1]</font>"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-25",
+          "type": "node",
+          "parent": "1",
+          "label": "Read pixel entry"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-63",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-27",
+          "target": "k8Y8Kcw116URplJfpIN7-29"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-73",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-27",
+          "target": "k8Y8Kcw116URplJfpIN7-30"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-27",
+          "type": "node",
+          "parent": "1",
+          "label": "Entry label = 0"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-1",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-29"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-29",
+          "type": "node",
+          "parent": "1",
+          "label": "Do replacement 1 bit"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-30",
+          "type": "node",
+          "parent": "1",
+          "label": "Else if(entry label = 1)\n\nDo replacement 1 bit",
+          "html": "Else if(entry label = 1)<div><br></div><div>Do replacement 1 bit</div>"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-37",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-13",
+          "target": "k8Y8Kcw116URplJfpIN7-15"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-40",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-15",
+          "target": "k8Y8Kcw116URplJfpIN7-11"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-42",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-17",
+          "target": "k8Y8Kcw116URplJfpIN7-11"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-45",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-25",
+          "target": "k8Y8Kcw116URplJfpIN7-27"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-52",
+          "type": "node",
+          "parent": "1",
+          "label": "Read pixel entry"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-65",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-53",
+          "target": "k8Y8Kcw116URplJfpIN7-54"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-53",
+          "type": "node",
+          "parent": "1",
+          "label": "Entry label = 0"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-7",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-54",
+          "target": "k8Y8Kcw116URplJfpIN7-52"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-54",
+          "type": "node",
+          "parent": "1",
+          "label": "Do replacement 0 bit"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-62",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-55",
+          "target": "k8Y8Kcw116URplJfpIN7-56"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-67",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-55",
+          "target": "k8Y8Kcw116URplJfpIN7-66"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-55",
+          "type": "node",
+          "parent": "1",
+          "label": "Entry label = 1"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-75",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-56",
+          "target": "k8Y8Kcw116URplJfpIN7-52"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-56",
+          "type": "node",
+          "parent": "1",
+          "label": "Else if(entry label = 2)\n\nDo replacement 2 bit",
+          "html": "Else if(entry label = 2)<div><br></div><div>Do replacement 2 bit</div>"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-57",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-30",
+          "target": "k8Y8Kcw116URplJfpIN7-23"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-59",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-52",
+          "target": "k8Y8Kcw116URplJfpIN7-53"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-61",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-53",
+          "target": "k8Y8Kcw116URplJfpIN7-55"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-4",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-66",
+          "target": "k8Y8Kcw116URplJfpIN7-52"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-66",
+          "type": "node",
+          "parent": "1",
+          "label": "Do replacement 1 bit"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-78",
+          "type": "node",
+          "parent": "1",
+          "label": "End"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-81",
+          "type": "node",
+          "parent": "1",
+          "label": "Output :\nKey array",
+          "html": "Output :<div>Key array</div>"
+        },
+        {
+          "id": "k8Y8Kcw116URplJfpIN7-83",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-81",
+          "target": "k8Y8Kcw116URplJfpIN7-78"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-9",
+          "type": "node",
+          "parent": "1",
+          "label": "Output : Stego image"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-11",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-9",
+          "target": "k8Y8Kcw116URplJfpIN7-78"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-26",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-13",
+          "target": "TQf867s65-m3641QKlDf-15"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-13",
+          "type": "node",
+          "parent": "1",
+          "label": "Start"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-53",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-14",
+          "target": "TQf867s65-m3641QKlDf-50"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-14",
+          "type": "node",
+          "parent": "1",
+          "label": "Input : Stego image"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-54",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-15"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-15",
+          "type": "node",
+          "parent": "1",
+          "label": "Input :\nKey array",
+          "html": "Input :<div>Key array</div>"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-16",
+          "type": "node",
+          "parent": "1",
+          "label": "Predict pixel density"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-31",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-17",
+          "target": "TQf867s65-m3641QKlDf-18"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-17",
+          "type": "node",
+          "parent": "1",
+          "label": "Key array = 1"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-37",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-18",
+          "target": "TQf867s65-m3641QKlDf-36"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-18",
+          "type": "node",
+          "parent": "1",
+          "label": "Extract 1 bit from pixel"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-33",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-19",
+          "target": "TQf867s65-m3641QKlDf-20"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-19",
+          "type": "node",
+          "parent": "1",
+          "label": "Key array = 2"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-38",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-20",
+          "target": "TQf867s65-m3641QKlDf-36"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-20",
+          "type": "node",
+          "parent": "1",
+          "label": "Extract 2 bit from pixel"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-35",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-21",
+          "target": "TQf867s65-m3641QKlDf-22"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-21",
+          "type": "node",
+          "parent": "1",
+          "label": "Key array = 3"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-39",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-22"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-22",
+          "type": "node",
+          "parent": "1",
+          "label": "Extract 3 bit from pixel"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-25",
+          "type": "node",
+          "parent": "1",
+          "label": "index(key) &gt; len(key)"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-27",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-13",
+          "target": "TQf867s65-m3641QKlDf-14"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-32",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-17",
+          "target": "TQf867s65-m3641QKlDf-19"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-34",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-19",
+          "target": "TQf867s65-m3641QKlDf-21"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-36",
+          "type": "node",
+          "parent": "1",
+          "label": "Index increment"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-40",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-36",
+          "target": "TQf867s65-m3641QKlDf-25"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-48",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-42",
+          "target": "TQf867s65-m3641QKlDf-47"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-42",
+          "type": "node",
+          "parent": "1",
+          "label": "Output : Cover image"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-43",
+          "type": "node",
+          "parent": "1",
+          "label": "Output : \nSecret bit",
+          "html": "Output :&nbsp;<div>Secret bit</div>"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-44",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-25",
+          "target": "TQf867s65-m3641QKlDf-42"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-45",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-25",
+          "target": "TQf867s65-m3641QKlDf-43"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-47",
+          "type": "node",
+          "parent": "1",
+          "label": "End"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-49",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-43",
+          "target": "TQf867s65-m3641QKlDf-47"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-55",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-50",
+          "target": "TQf867s65-m3641QKlDf-16"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-50",
+          "type": "node",
+          "parent": "1",
+          "label": "Read\nstego image",
+          "html": "Read<div>stego image</div>"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-56",
+          "type": "node",
+          "parent": "1",
+          "label": "len(secret) &lt;= label[0]"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-58",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-16",
+          "target": "TQf867s65-m3641QKlDf-56"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-59",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-56",
+          "target": "TQf867s65-m3641QKlDf-17"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-63",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-25",
+          "target": "TQf867s65-m3641QKlDf-56"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-64",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-56",
+          "target": "TQf867s65-m3641QKlDf-47"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-65",
+          "type": "node",
+          "parent": "1",
+          "label": "1"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-66",
+          "type": "node",
+          "parent": "1",
+          "label": "0"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-67",
+          "type": "node",
+          "parent": "1",
+          "label": "1"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-68",
+          "type": "node",
+          "parent": "1",
+          "label": "0"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-71",
+          "type": "node",
+          "parent": "1",
+          "label": "1"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-72",
+          "type": "node",
+          "parent": "1",
+          "label": "0"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-73",
+          "type": "node",
+          "parent": "1",
+          "label": "0"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-74",
+          "type": "node",
+          "parent": "1",
+          "label": "1"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-80",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-78",
+          "target": "k8Y8Kcw116URplJfpIN7-52"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-81",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-78",
+          "target": "TQf867s65-m3641QKlDf-9"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-82",
+          "type": "edge",
+          "parent": "1",
+          "source": "TQf867s65-m3641QKlDf-78",
+          "target": "k8Y8Kcw116URplJfpIN7-81"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-78",
+          "type": "node",
+          "parent": "1",
+          "label": "Secret\nembedded",
+          "html": "Secret<div>embedded</div>"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-79",
+          "type": "edge",
+          "parent": "1",
+          "source": "k8Y8Kcw116URplJfpIN7-23",
+          "target": "TQf867s65-m3641QKlDf-78"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-83",
+          "type": "node",
+          "parent": "1",
+          "label": "0"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-84",
+          "type": "node",
+          "parent": "1",
+          "label": "1"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-85",
+          "type": "node",
+          "parent": "1",
+          "label": "1"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-86",
+          "type": "node",
+          "parent": "1",
+          "label": "0"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-87",
+          "type": "node",
+          "parent": "1",
+          "label": "1"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-88",
+          "type": "node",
+          "parent": "1",
+          "label": "1"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-89",
+          "type": "node",
+          "parent": "1",
+          "label": "1"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-90",
+          "type": "node",
+          "parent": "1",
+          "label": "0"
+        },
+        {
+          "id": "TQf867s65-m3641QKlDf-91",
+          "type": "node",
+          "parent": "1",
+          "label": "0"
+        }
+      ]
+    }
+  ]
+}
