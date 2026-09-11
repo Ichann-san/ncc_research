@@ -120,9 +120,9 @@ For requested depth $D_p[g(x)]$, the actual body depth is the largest safe candi
 
 $$
 h_p(x)=\max\left(
-\left\{
+\{
 t\in\{1,\ldots,\min(D_p[g(x)],b)\}:g(\min B_t(x))=g(\max B_t(x))=g(x),\ B_t(x)\cap\Pi=\varnothing
-\right\}\cup\{0\}
+\}\cup\{0\}
 \right).
 $$
 
@@ -182,7 +182,7 @@ $$
 For payload length $|M|$ in bytes, select the smallest feasible profile:
 
 $$
-p^*=\min\left\{p\in\{1,2,3\}:|M|\le C_p^{\mathrm{byte}}\right\}.
+p^*=\min\{p\mid p\in\{1,2,3\},\ |M|\le C_p^{\mathrm{byte}}\}.
 $$
 
 If no profile is feasible, the sender rejects the operation before modifying the array.
@@ -276,7 +276,7 @@ For an accepted array $X$, payload $M$, domain metadata $(b,s)$, and padding spe
 Then the extraction algorithm returns the exact payload:
 
 $$
-\operatorname{Extract}(\operatorname{Embed}(X,M),b,s,\Pi)=M.
+\mathrm{Extract}(\mathrm{Embed}(X,M),b,s,\Pi)=M.
 $$
 
 This theorem concerns payload recovery. It does not imply recovery of $X$.
