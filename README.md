@@ -24,6 +24,8 @@ The objective is to transform an underspecified adaptive data-hiding concept int
 
 ## Evidence labels
 
+For individual equations, pixel calculations, and explicitly defined percentage comparisons, read the [pixel-level comparison of reference DE, BASMEDSecure, and ICHAN-DH](comparison/README.md). It includes editable Mermaid diagrams and a complete one-byte analytical example, not experimental results.
+
 The presentation uses the following labels to prevent planned work from being presented as completed evidence.
 
 | Label | Meaning |

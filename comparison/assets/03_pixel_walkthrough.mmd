@@ -1,0 +1,16 @@
+flowchart TB
+    A["144 pixels: 136 zeros followed by 100,99,150,148,98,152,180,181"] --> B["Payload A6: 10100110; no declared padding"]
+    B --> C["Baseline: assume predicted labels equal threshold labels"]
+    C --> D["Capacities 139,280,424 bits; select profile 1"]
+    D --> E["First eight zeros become 1,0,1,0,0,1,1,0"]
+    E --> F["Full SSE 4; extract with external depth map"]
+    B --> G["B1: reserve first 136 pixels for header"]
+    G --> H["Suffix guarded capacities 2,5,8 bits; select profile 3"]
+    H --> I["Header has 33 one-bits: header SSE 33"]
+    I --> J["100: skip; 99 with 10 becomes 98; 150: skip"]
+    J --> K["148 with 1 becomes 149; 98 with 00 becomes 96"]
+    K --> L["152 with 1 becomes 153; 180 with 1 becomes 181; 181 with 0 becomes 180"]
+    L --> M["Body SSE 9; full SSE 42"]
+    M --> N["Receiver reconstructs same depths; chunks 10,1,00,1,1,0 recover A6"]
+    F --> O["Analytical example only; no dataset ranking or executed research test"]
+    N --> O

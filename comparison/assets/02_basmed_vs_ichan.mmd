@@ -1,0 +1,17 @@
+flowchart TB
+    A["Same declared cover and payload; account for all side information"] --> B["BASMEDSecure disclosed baseline"]
+    A --> C["ICHAN-DH frozen B1"]
+    B --> B1["Generate threshold labels; fit and predict classes"]
+    B1 --> B2["Count requested slots; select first feasible profile"]
+    B2 --> B3["Replace LSBs; record actual widths including zero entries"]
+    B3 --> B4["Transmit stego plus ordered depth map"]
+    B4 --> B5["Read widths from map; extract payload"]
+    C --> C1["Validate stored-value domain and padding"]
+    C1 --> C2["Find 136 safe header carriers; reserve complete prefix"]
+    C2 --> C3["Compute exact strata and guarded suffix capacities"]
+    C3 --> C4["Select first byte-feasible profile; construct header"]
+    C4 --> C5["Write header; replace body LSBs using actual widths"]
+    C5 --> C6["Receiver reconstructs header, boundary, capacities and profile"]
+    C6 --> C7["Extract declared byte length; compare payload CRC32"]
+    B5 --> D["Payload recovery is not original-cover recovery"]
+    C7 --> D

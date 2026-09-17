@@ -1,0 +1,7 @@
+flowchart LR
+    A["Original pair: 181, 180; bit: 1"] --> B["d = 181 - 180 = 1; eligible pair"]
+    B --> C["u = d + bit = 2"]
+    C --> D["Stego pair: 181 + 2, 180 = 183, 180"]
+    D --> E["Receiver: D = 183 - 180 = 3"]
+    E --> F["Payload: 3 mod 2 = 1"]
+    E --> G["Cover: 183 - ceil of 3/2 = 181"]
